@@ -60,6 +60,14 @@ namespace DMagic.Part_Modules
 			base.retractEvent();
 		}
 
+		protected override void onLabReset()
+		{
+			base.onLabReset();
+
+			if (IsDeployed)
+				sampleAnimator(-2f, 1f, (anim2[sampleAnim].length / 2f));
+		}
+
 		private IEnumerator waitForSamples(float waitTime)
 		{
 			yield return new WaitForSeconds(waitTime);
